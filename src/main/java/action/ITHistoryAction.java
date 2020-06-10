@@ -1,20 +1,19 @@
-package com.edwardghuber.action;
+package action;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-
 import com.opensymphony.xwork2.ActionSupport;
-import com.edwardghuber.core.Job;
-import com.edwardghuber.db.dbDAO;
+import core.Job;
+import database.dbDAO;
 
-public class WorkHistoryAction extends ActionSupport {
-    ArrayList<Job> workHistory;
-//    private String companyName;
-//    private String location;
-//    private String jobTitle;
+public class ITHistoryAction extends ActionSupport {
+    private ArrayList<Job> workHistory;
+//    private String companyName = "";
+//    private String location = "";
+//    private String jobTitle = "";
     private final SimpleDateFormat MMMyyyyWithSpace = new SimpleDateFormat("MMM yyyy");
+
 
     public String execute() throws SQLException{
         String ret = ERROR;
@@ -26,6 +25,7 @@ public class WorkHistoryAction extends ActionSupport {
             conn = dbWorkHistory.openConnection("WorkHistory");
 
             String sqlJobText = "SELECT id, companyName, location, jobTitle, startDate, endDate FROM Jobs";
+            sqlJobText+= " WHERE isIT = 1";
             sqlJobText+= " ORDER BY id DESC";
             Statement jobStatement = conn.createStatement();
 

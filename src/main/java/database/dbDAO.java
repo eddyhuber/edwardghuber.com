@@ -1,4 +1,4 @@
-package com.edwardghuber.db;
+package database;
 
 import java.sql.*;
 

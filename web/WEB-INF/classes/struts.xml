@@ -9,18 +9,18 @@
     <package name="default" namespace="/" extends="struts-default">
 
 <!--        <action name="hello"-->
-<!--                class="com.edwardghuber.action.HelloWorldAction">-->
+<!--                class="action.HelloWorldAction">-->
 <!--            <result>greeting.jsp</result>-->
 <!--        </action>-->
 
         <action name="getAllWorkHistory"
-                class="com.edwardghuber.action.WorkHistoryAction"
+                class="action.WorkHistoryAction"
                 method="execute">
             <result>workHistory.jsp</result>
         </action>
 
         <action name="getITHistory"
-                class="com.edwardghuber.action.ITHistoryAction"
+                class="action.ITHistoryAction"
                 method="execute">
                 <result>workHistory.jsp</result>
         </action>

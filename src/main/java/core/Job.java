@@ -1,4 +1,4 @@
-package com.edwardghuber.core;
+package core;
 
 import java.util.ArrayList;
 

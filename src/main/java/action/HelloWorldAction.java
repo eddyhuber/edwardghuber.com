@@ -1,4 +1,4 @@
-package com.edwardghuber.action;
+package action;
 
 public class HelloWorldAction {
     private String name;
