@@ -1,0 +1,85 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+#header {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #0E28E5;
+    text-align: center;
+}
+
+#main_content {
+    width: 80%;
+    margin: auto;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-left-color: #0E28E5;
+    border-right-color: #0E28E5;
+    padding: 25px;
+    background-color: #222222;
+}
+
+/*#menu {*/
+/*    float: left;*/
+/*    position: relative;*/
+/*}*/
+
+/*#selected_content {*/
+/*    float: left;*/
+/*    position: relative;*/
+/*}*/
+
+#job_card {
+    width: 75%;
+    margin: auto;
+    padding: 0 15px;
+    border-color: lightskyblue;
+    border-style: solid;
+    border-width: 3px;
+    background-color: black;
+}
+
+#company_name {
+    text-align: center;
+    background-color: #1624a0;
+}
+
+.column {
+    float: left;
+    position: relative;
+}
+
+#start_date, #end_date {
+    width: 25%;
+    text-align: center;
+    font-size: x-large;
+}
+
+#title_location {
+    width: 50%;
+    text-align: center;
+}
+
+#job_details:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#descriptions {
+    text-align: left;
+    border-top-color: lightskyblue;
+    border-top-style: dashed;
+    border-top-width: 2px;
+}
+
+footer {
+    border-top-color: #0E28E5;
+    border-top-width: 1px;
+    border-top-style: solid;
+    text-align: center;
+}
