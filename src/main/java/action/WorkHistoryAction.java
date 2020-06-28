@@ -10,9 +10,6 @@ import database.dbDAO;
 
 public class WorkHistoryAction extends ActionSupport {
     ArrayList<Job> workHistory;
-//    private String companyName;
-//    private String location;
-//    private String jobTitle;
     private final SimpleDateFormat MMMyyyyWithSpace = new SimpleDateFormat("MMM yyyy");
 
     public String execute() throws SQLException{
@@ -79,27 +76,4 @@ public class WorkHistoryAction extends ActionSupport {
         this.workHistory = workHistory;
     }
 
-//    public String getCompanyName() {
-//        return companyName;
-//    }
-//
-//    public void setCompanyName(String companyName) {
-//        this.companyName = companyName;
-//    }
-//
-//    public String getLocation() {
-//        return location;
-//    }
-//
-//    public void setLocation(String location) {
-//        this.location = location;
-//    }
-//
-//    public String getJobTitle() {
-//        return jobTitle;
-//    }
-//
-//    public void setJobTitle(String jobTitle) {
-//        this.jobTitle = jobTitle;
-//    }
 }

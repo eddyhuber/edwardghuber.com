@@ -22,7 +22,13 @@
         <action name="getITHistory"
                 class="action.ITHistoryAction"
                 method="execute">
-                <result>workHistory.jsp</result>
+            <result>workHistory.jsp</result>
+        </action>
+
+        <action name="getSkills"
+                class="action.SkillsAction"
+                method="execute">
+            <result>underConstruction.jsp</result>
         </action>
 
     </package>

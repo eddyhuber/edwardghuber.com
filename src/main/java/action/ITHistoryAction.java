@@ -9,9 +9,6 @@ import database.dbDAO;
 
 public class ITHistoryAction extends ActionSupport {
     private ArrayList<Job> workHistory;
-//    private String companyName = "";
-//    private String location = "";
-//    private String jobTitle = "";
     private final SimpleDateFormat MMMyyyyWithSpace = new SimpleDateFormat("MMM yyyy");
 
 
@@ -79,28 +76,4 @@ public class ITHistoryAction extends ActionSupport {
     public void setWorkHistory(ArrayList<Job> workHistory) {
         this.workHistory = workHistory;
     }
-
-//    public String getCompanyName() {
-//        return companyName;
-//    }
-//
-//    public void setCompanyName(String companyName) {
-//        this.companyName = companyName;
-//    }
-//
-//    public String getLocation() {
-//        return location;
-//    }
-//
-//    public void setLocation(String location) {
-//        this.location = location;
-//    }
-//
-//    public String getJobTitle() {
-//        return jobTitle;
-//    }
-//
-//    public void setJobTitle(String jobTitle) {
-//        this.jobTitle = jobTitle;
-//    }
 }
