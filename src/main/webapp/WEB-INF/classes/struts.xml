@@ -8,27 +8,29 @@
     <constant name="struts.devMode" value="true"/>
     <package name="default" namespace="/" extends="struts-default">
 
-<!--        <action name="hello"-->
-<!--                class="action.HelloWorldAction">-->
-<!--            <result>greeting.jsp</result>-->
-<!--        </action>-->
-
         <action name="getAllWorkHistory"
                 class="action.WorkHistoryAction"
-                method="execute">
+                method="allWorkHistory">
             <result>workHistory.jsp</result>
         </action>
 
         <action name="getITHistory"
-                class="action.ITHistoryAction"
-                method="execute">
+                class="action.WorkHistoryAction"
+                method="allITHistory">
             <result>workHistory.jsp</result>
         </action>
+
+        <!--        <action name="getWorkHistory"-->
+        <!--                class="action.WorkHistoryAction"-->
+        <!--                method="execute">-->
+        <!--            <result name="all">workHistory.jsp</result>-->
+        <!--            <result name="ITOnly">workHistory.jsp</result>-->
+        <!--        </action>-->
 
         <action name="getSkills"
                 class="action.SkillsAction"
                 method="execute">
-            <result>underConstruction.jsp</result>
+            <result>skillSets.jsp</result>
         </action>
 
     </package>

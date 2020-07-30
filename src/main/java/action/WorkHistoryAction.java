@@ -10,10 +10,12 @@ import database.dbDAO;
 
 public class WorkHistoryAction extends ActionSupport {
     ArrayList<Job> workHistory;
+    boolean ITOnly;
     private final SimpleDateFormat MMMyyyyWithSpace = new SimpleDateFormat("MMM yyyy");
+    String ret;
 
-    public String execute() throws SQLException{
-        String ret = ERROR;
+    public String execute(boolean ITOnly) throws SQLException{
+        ret = ERROR;
         dbDAO dbWorkHistory = new dbDAO();
         Connection conn = null;
         workHistory = new ArrayList<>();
@@ -22,6 +24,9 @@ public class WorkHistoryAction extends ActionSupport {
             conn = dbWorkHistory.openConnection("WorkHistory");
 
             String sqlJobText = "SELECT id, companyName, location, jobTitle, startDate, endDate FROM Jobs";
+            if (ITOnly) {
+                sqlJobText+= " WHERE isIT = true";
+            }
             sqlJobText+= " ORDER BY id DESC";
             Statement jobStatement = conn.createStatement();
 
@@ -68,6 +73,16 @@ public class WorkHistoryAction extends ActionSupport {
         return ret;
     }
 
+    public String allWorkHistory() throws SQLException {
+        ret = execute(false);
+        return ret;
+    }
+
+    public String allITHistory() throws SQLException {
+        ret = execute(true);
+        return ret;
+    }
+
     public ArrayList<Job> getWorkHistory() {
         return workHistory;
     }
@@ -75,5 +90,9 @@ public class WorkHistoryAction extends ActionSupport {
     public void setWorkHistory(ArrayList<Job> workHistory) {
         this.workHistory = workHistory;
     }
+
+    public boolean getITOnly() { return ITOnly; }
+
+    public void setITOnly(boolean ITOnly) { this.ITOnly = ITOnly; }
 
 }

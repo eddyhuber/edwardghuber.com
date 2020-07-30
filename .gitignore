@@ -25,5 +25,8 @@
 hs_err_pid*
 
 src/main/java/database/ConnParams.java
+.idea/dataSources/*
+.idea/dataSources.*
+
 # Project exclude paths
 /out/

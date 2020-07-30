@@ -1,0 +1,41 @@
+#job_card {
+    width: 80%;
+    margin: auto;
+    padding: 0 15px;
+    border: 3px solid lightskyblue;
+    background-color: black;
+}
+
+#company_name {
+    text-align: center;
+    background-color: #1624a0;
+}
+
+.column {
+    float: left;
+    position: relative;
+}
+
+#start_date, #end_date {
+    text-align: center;
+    width: 25%;
+    font-size: x-large;
+}
+
+#title_location {
+    width: 50%;
+    text-align: center;
+}
+
+#job_details:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#descriptions {
+    text-align: left;
+    border-top-color: lightskyblue;
+    border-top-style: dashed;
+    border-top-width: 2px;
+}

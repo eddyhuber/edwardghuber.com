@@ -1,0 +1,24 @@
+.skills {
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    text-align: center;
+}
+
+#skill_card {
+    padding-bottom: 25px;
+}
+
+.levels {
+    height: 125px;
+    width: 175px;
+}
+
+.arrow {
+    height: 12px;
+    width: 12px;
+}
+
+.skills_header:hover {
+    cursor: pointer;
+}

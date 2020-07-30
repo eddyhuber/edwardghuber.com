@@ -1,5 +1,4 @@
 body {
-    /*background-color: #16161d;*/
     background-color: black;
     color: white;
     padding: 0;
@@ -18,6 +17,11 @@ nav {
     background-color: #16161d;
     text-align: center;
     border-bottom: 3px solid black;
+    text-shadow: rgb(0, 0, 0) 0 0 1px,
+                 rgb(0, 0, 0) 0 0 2px,
+                 rgb(0, 0, 0) 0 0 3px,
+                 rgb(0, 0, 0) 0 0 4px,
+                 rgb(0, 0, 0) 0 0 5px;
 }
 
 .menu {
@@ -35,9 +39,6 @@ nav {
 }
 
 .unselected:hover {
-    /*background-image: linear-gradient(darkblue, royalblue);*/
-    /*background-image: linear-gradient(black, #222222); */
-    /*background-image: linear-gradient(black, #222222, black);*/
     background-image: linear-gradient(#222222, black, #222222);
 }
 
@@ -52,48 +53,6 @@ nav {
     border-right-color: #0E28E5;
     padding: 15px 25px;
     background-color: #222222;
-}
-
-#job_card {
-    width: 80%;
-    margin: auto;
-    padding: 0 15px;
-    border: 3px solid lightskyblue;
-    background-color: black;
-}
-
-#company_name {
-    text-align: center;
-    background-color: #1624a0;
-}
-
-.column {
-    float: left;
-    position: relative;
-}
-
-#start_date, #end_date {
-    text-align: center;
-    width: 25%;
-    font-size: x-large;
-}
-
-#title_location {
-    width: 50%;
-    text-align: center;
-}
-
-#job_details:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-#descriptions {
-    text-align: left;
-    border-top-color: lightskyblue;
-    border-top-style: dashed;
-    border-top-width: 2px;
 }
 
 footer {

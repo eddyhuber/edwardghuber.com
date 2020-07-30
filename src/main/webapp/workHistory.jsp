@@ -8,6 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
+<%--<s:action name="getAllWorkHistory" var="ITOnly"/>--%>
+<%--<s:radio id="work_history_type" value="ITOnly" list="%{#{'true':'All Work History', 'false':'IT Only'}}"></s:radio>--%>
+
 <s:iterator value="workHistory">
 	<br/>
 	<div id="job_card">

@@ -23,6 +23,7 @@
           <element id="library" level="project" name="Maven: commons-io:commons-io:2.6" />
           <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.8.1" />
           <element id="library" level="project" name="Maven: com.jgeppert.struts2.jquery:struts2-jquery-plugin:4.0.3" />
+          <element id="library" level="project" name="Maven: org.webjars:jquery:3.5.1" />
           <element id="library" level="project" name="Maven: org.mariadb.jdbc:mariadb-java-client:2.6.0" />
         </element>
       </element>
