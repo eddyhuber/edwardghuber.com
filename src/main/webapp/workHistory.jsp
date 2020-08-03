@@ -20,21 +20,16 @@
 		</div>
 		
 		<div id="job_details">
-			<div id="start_date" class="column">
+			<div id="start_date" class="job_details_cell">
 				<s:property value="startDate"/>
 			</div>
-			
-			<div id="title_location" class="column">
-				<div id="job_title">
-					<i><s:property value="jobTitle"/></i>
-				</div>
-				
-				<div id="location">
-					<s:property value="location"/>
-				</div>
+			<div id="job_title" class="job_details_cell">
+				<b><s:property value="jobTitle"/></b>
 			</div>
-			
-			<div id="end_date" class="column">
+			<div id="location" class="job_details_cell">
+				<i><s:property value="location"/></i>
+			</div>
+			<div id="end_date" class="job_details_cell">
 				<s:property value="endDate"/>
 			</div>
 		</div>

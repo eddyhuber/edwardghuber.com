@@ -24,6 +24,12 @@ nav {
                  rgb(0, 0, 0) 0 0 5px;
 }
 
+nav a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .menu {
     padding: 7px;
     color: white;
@@ -60,4 +66,8 @@ footer {
     border-top-width: 1px;
     border-top-style: solid;
     text-align: center;
+}
+
+footer p a {
+    color: lightskyblue;
 }
