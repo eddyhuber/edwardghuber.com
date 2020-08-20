@@ -33,5 +33,11 @@
             <result>skillSets.jsp</result>
         </action>
 
+        <action name="getEducation"
+                class="action.EducationAction"
+                method="execute">
+            <result>education.jsp</result>
+        </action>
+
     </package>
 </struts>

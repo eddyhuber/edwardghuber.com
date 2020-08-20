@@ -21,6 +21,7 @@ To change this template use File | Settings | File Templates.
 		<link rel="stylesheet" href="css/coreStyles.css" type="text/css">
 		<link rel="stylesheet" href="css/workHistoryStyles.css" type="text/css">
 		<link rel="stylesheet" href="css/skillStyles.css" type="text/css">
+		<link rel="stylesheet" href="css/educationStyles.css" type="text/css">
 		
 		<script type="text/javascript" src="js/scripts.js"></script>
 		<s:head />
@@ -48,10 +49,10 @@ To change this template use File | Settings | File Templates.
 				Skills & Proficiency
 			</sj:a>
 			
-<%--			<s:url var="education_ajax" action="getEducation">--%>
-<%--				<s:param name="education" value="%{selected}" />--%>
-<%--			</s:url>--%>
-			<sj:a id="education_link" href="education.jsp" targets="selected_content" class="menu unselected" onclick="menuNav(this)">
+			<s:url var="education_ajax" action="getEducation">
+				<s:param name="schools" value="%{selected}" />
+			</s:url>
+			<sj:a id="education_link" href="%{education_ajax}" targets="selected_content" class="menu unselected" onclick="menuNav(this)">
 				Education & Certifications
 			</sj:a>
 			

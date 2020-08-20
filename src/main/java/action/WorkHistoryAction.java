@@ -3,7 +3,6 @@ package action;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
 import com.opensymphony.xwork2.ActionSupport;
 import core.Job;
 import database.dbDAO;
@@ -33,12 +32,6 @@ public class WorkHistoryAction extends ActionSupport {
             String sqlJobDescText = "SELECT description FROM JobDescriptions";
             sqlJobDescText += " WHERE jobID = ?";
             PreparedStatement psJobDesc = conn.prepareStatement(sqlJobDescText);
-
-
-//            PreparedStatement ps = conn.prepareStatement(sqlText);
-//            ps.setString(1, asdf);
-//            ps.SetString(2, fdsa);
-//            ResultSet rs = ps.executeQuery();
 
             ResultSet rsJob = jobStatement.executeQuery(sqlJobText);
 

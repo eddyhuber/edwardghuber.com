@@ -29,4 +29,40 @@ public class dbDAO {
             dbConn.close();
         }
     }
+
+    public ResultSet createRunSelectQuery(dbDAO db, String dbSchema, String dbTable, String[] selectionCriteria, String extraCriteria) throws SQLException {
+        Connection conn = null;
+        ResultSet rs = null;
+
+        try {
+            conn = db.openConnection(dbSchema);
+
+            String sqlText = "SELECT ";
+            for (int i = 0; i < selectionCriteria.length; i++) {
+                if (i == selectionCriteria.length-1) {
+                    sqlText += selectionCriteria[i];
+                } else {
+                    sqlText += selectionCriteria[i] + ", ";
+                }
+            }
+            sqlText += " FROM " + dbTable;
+            if (extraCriteria != null) {
+                sqlText += " " + extraCriteria; // used for specific WHERE, ORDER BY, etc.
+            }
+            Statement stmt = conn.createStatement();
+
+//            PreparedStatement ps = conn.prepareStatement(sqlText);
+//            ps.setString(1, asdf);
+//            ps.SetString(2, fdsa);
+//            ResultSet rs = ps.executeQuery();
+
+            rs = stmt.executeQuery(sqlText);
+
+        } catch (SQLException sqle) {
+            // catch SQL Exception
+        } finally {
+            db.closeConnection(conn);
+        }
+        return rs;
+    }
 }

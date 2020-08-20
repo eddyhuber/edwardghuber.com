@@ -5,6 +5,11 @@
     text-align: center;
 }
 
+#skills_wrapper {
+    width: 90%;
+    margin: auto;
+}
+
 #skill_card {
     padding-bottom: 25px;
 }

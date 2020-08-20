@@ -1,0 +1,59 @@
+#school_card {
+    width: 80%;
+    margin: auto;
+    border: 3px solid #1624a0;
+    background-color: black;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+#school_name {
+    text-align: center;
+    background-color: #1624a0;
+    padding: 10px;
+    font-size: 1.25em;
+    font-weight: bolder;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    text-shadow: rgb(0, 0, 0) 0 0 1px,
+    rgb(0, 0, 0) 0 0 2px,
+    rgb(0, 0, 0) 0 0 3px,
+    rgb(0, 0, 0) 0 0 4px,
+    rgb(0, 0, 0) 0 0 5px;
+}
+
+#school_details {
+    padding: 10px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 65% 35%;
+    grid-template-rows: 50% 50%;
+    grid-auto-flow: column;
+    font-size: 1.2em;
+}
+
+.school_details_right {
+    text-align: right;
+}
+
+#degree_major {
+    padding-left: 10px;
+}
+
+#individual_semester {
+    border-top: lightskyblue 3px solid;
+    width: 90%;
+    margin: auto;
+}
+
+#semester_name_year {
+    font-size: 1.15em;
+    font-weight: bolder;
+    border-bottom: lightskyblue 1px dashed;
+    padding: 10px 20px;
+}
+
+#semester_course_list {
+    width: 97%;
+    margin: auto;
+}

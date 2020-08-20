@@ -17,7 +17,6 @@
     grid-template-columns: 25% 50% 25%;
     grid-template-rows: 50% 50%;
     grid-auto-flow: column;
-    /*text-align: center;*/
 }
 .job_details_cell {
     display: flex;
@@ -25,12 +24,12 @@
     align-items: center;
 }
 
-#start_date, #end_date {
+#job_start_date, #job_end_date {
     grid-row: 1 / 3;
     font-size: x-large;
 }
 
-#descriptions {
+#job_descriptions {
     text-align: left;
     border-top-color: lightskyblue;
     border-top-style: dashed;
