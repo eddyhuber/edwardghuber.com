@@ -5,14 +5,14 @@ public class Skill {
     private int skillLevel;
     private String type;
     private String category;
-    private int yearsExp;
+//    private int yearsExp;
 
-    public Skill(String skillName, int skillLevel, String type, String category, int yearsExp) {
+    public Skill(String skillName, int skillLevel, String type, String category) { //}, int yearsExp) {
         this.skillName = skillName;
         this.skillLevel = skillLevel;
         this.type = type;
         this.category = category;
-        this.yearsExp = yearsExp;
+//        this.yearsExp = yearsExp;
     }
 
     public String getSkillName() {
@@ -47,11 +47,11 @@ public class Skill {
         this.category = category;
     }
 
-    public int getYearsExp() {
-        return yearsExp;
-    }
-
-    public void setYearsExp(int yearsExp) {
-        this.yearsExp = yearsExp;
-    }
+//    public int getYearsExp() {
+//        return yearsExp;
+//    }
+//
+//    public void setYearsExp(int yearsExp) {
+//        this.yearsExp = yearsExp;
+//    }
 }

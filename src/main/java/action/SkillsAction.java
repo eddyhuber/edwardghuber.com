@@ -9,42 +9,31 @@ import java.util.ArrayList;
 
 public class SkillsAction extends ActionSupport {
     ArrayList<Skill> skillSet;
+    String ret;
 
-
-    public String execute() throws SQLException {
-        String ret = ERROR;
-        dbDAO dbSkills = new dbDAO();
-        Connection conn = null;
+    public String execute() {
         skillSet = new ArrayList<>();
+        ret = ERROR;
+        dbDAO dbSkills = new dbDAO();
+        String dbSchema = "Skills";
+
+        String[] skillSelectList = {"id", "skillName", "level", "type", "category"};
+        String skillExtra = "ORDER BY category, type, level DESC";
 
         try {
-            conn = dbSkills.openConnection("Skills");
+            ResultSet rsSkills = dbSkills.createRunSelectQuery(dbSchema, "Proficiencies", skillSelectList, skillExtra);
+            while (rsSkills.next()) {
+                String skillName = rsSkills.getString("skillName");
+                int level = rsSkills.getInt("level");
+                String type = rsSkills.getString("type");
+                String category = rsSkills.getString("category");
 
-            String sqlSkillText = "SELECT id, skillName, level, type, category FROM Proficiencies";
-            sqlSkillText+= " ORDER BY category, type, level DESC";
-            Statement skillStatement = conn.createStatement();
-
-//            PreparedStatement ps = conn.prepareStatement(sqlText);
-//            ps.setString(1, asdf);
-//            ps.SetString(2, fdsa);
-//            ResultSet rs = ps.executeQuery();
-
-            ResultSet rsSkill = skillStatement.executeQuery(sqlSkillText);
-
-            while (rsSkill.next()) {
-                String skillName = rsSkill.getString("skillName");
-                int level = rsSkill.getInt("level");
-                String type = rsSkill.getString("type");
-                String category = rsSkill.getString("category");
-
-                skillSet.add(new Skill(skillName, level, type, category, 999));
+                skillSet.add(new Skill(skillName, level, type, category)); //, 999));
                 ret = SUCCESS;
             }
 
         } catch (SQLException sqle) {
             ret = ERROR;
-        } finally {
-            dbSkills.closeConnection(conn);
         }
         return ret;
     }

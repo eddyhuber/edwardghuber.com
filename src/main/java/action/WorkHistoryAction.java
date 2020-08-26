@@ -13,42 +13,43 @@ public class WorkHistoryAction extends ActionSupport {
     private final SimpleDateFormat MMMyyyyWithSpace = new SimpleDateFormat("MMM yyyy");
     String ret;
 
-    public String execute(boolean ITOnly) throws SQLException{
-        ret = ERROR;
-        dbDAO dbWorkHistory = new dbDAO();
-        Connection conn = null;
+    public String execute(boolean ITOnly) {
         workHistory = new ArrayList<>();
+        ret = ERROR;
+        dbDAO dbJobs = new dbDAO();
+        String dbSchema = "WorkHistory";
+
+        String[] workSelectList = {"id", "companyName", "location", "jobTitle", "startDate", "endDate"};
+        String workExtra = "";
+        if (ITOnly) {
+            workExtra+= "WHERE isIT = true ";
+        }
+        workExtra+= "ORDER BY id DESC";
+
+//        String sqlJobDescText = "SELECT description FROM JobDescriptions";
+//        sqlJobDescText += " WHERE jobID = ?";
+//        PreparedStatement psJobDesc = conn.prepareStatement(sqlJobDescText);
 
         try {
-            conn = dbWorkHistory.openConnection("WorkHistory");
-
-            String sqlJobText = "SELECT id, companyName, location, jobTitle, startDate, endDate FROM Jobs";
-            if (ITOnly) {
-                sqlJobText+= " WHERE isIT = true";
-            }
-            sqlJobText+= " ORDER BY id DESC";
-            Statement jobStatement = conn.createStatement();
-
-            String sqlJobDescText = "SELECT description FROM JobDescriptions";
-            sqlJobDescText += " WHERE jobID = ?";
-            PreparedStatement psJobDesc = conn.prepareStatement(sqlJobDescText);
-
-            ResultSet rsJob = jobStatement.executeQuery(sqlJobText);
-
-            while (rsJob.next()) {
-                String companyName = rsJob.getString("companyName");
-                String location = rsJob.getString("location");
-                String jobTitle = rsJob.getString("jobTitle");
-                Date startDate = rsJob.getDate("startDate");
-                Date endDate = rsJob.getDate("endDate");
-                psJobDesc.setString(1, rsJob.getString("id"));
+            ResultSet rsJobs = dbJobs.createRunSelectQuery(dbSchema, "Jobs", workSelectList, workExtra);
+            while (rsJobs.next()) {
+                int jobID = rsJobs.getInt("id");
+                String companyName = rsJobs.getString("companyName");
+                String location = rsJobs.getString("location");
+                String jobTitle = rsJobs.getString("jobTitle");
+                Date startDate = rsJobs.getDate("startDate");
+                Date endDate = rsJobs.getDate("endDate");
+//                psJobDesc.setString(1, rsJob.getString("id"));
 
                 String sdFormatted = MMMyyyyWithSpace.format(startDate);
                 String edFormatted = (endDate == null) ? "Present" : MMMyyyyWithSpace.format(endDate);
 
-
+                // For each Job, grab Descriptions
+                String[] descSelectList = {"description"};
+                String descExtra = "WHERE jobID = " + jobID;
                 ArrayList<String> descriptions = new ArrayList<>();
-                ResultSet rsDesc = psJobDesc.executeQuery();
+
+                ResultSet rsDesc = dbJobs.createRunSelectQuery(dbSchema, "JobDescriptions", descSelectList, descExtra);
                 while (rsDesc.next()) {
                     String description = rsDesc.getString("description");
                     descriptions.add(description);
@@ -60,18 +61,16 @@ public class WorkHistoryAction extends ActionSupport {
 
         } catch (SQLException sqle) {
             ret = ERROR;
-        } finally {
-            dbWorkHistory.closeConnection(conn);
         }
         return ret;
     }
 
-    public String allWorkHistory() throws SQLException {
+    public String allWorkHistory() {
         ret = execute(false);
         return ret;
     }
 
-    public String allITHistory() throws SQLException {
+    public String allITHistory() {
         ret = execute(true);
         return ret;
     }

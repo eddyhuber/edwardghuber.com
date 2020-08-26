@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
-<div id="skill_card">
+<div class="skill_card">
 	<div class="skill_level">
 		<s:if test="skillLevel==5">
 			<img class="levels" src="images/skill_level_5.png" alt="Skill Level 5">

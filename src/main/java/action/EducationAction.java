@@ -24,7 +24,7 @@ public class EducationAction extends ActionSupport {
         String schoolExtra = "ORDER BY startDate DESC";
 
         try {
-            ResultSet rsSchools = dbEdu.createRunSelectQuery(dbEdu, dbSchema, "Schools", schoolSelectList, schoolExtra);
+            ResultSet rsSchools = dbEdu.createRunSelectQuery(dbSchema, "Schools", schoolSelectList, schoolExtra);
             while (rsSchools.next()) {
                 int schoolID = rsSchools.getInt("id");
                 String schoolName = rsSchools.getString("schoolName");
@@ -42,7 +42,7 @@ public class EducationAction extends ActionSupport {
                 String semesterExtra = "WHERE schoolID = " + schoolID + " ORDER BY semesterNbr DESC";
                 LinkedHashMap<String, LinkedHashMap<String, String>> semesters = new LinkedHashMap<>();
 
-                ResultSet rsSemesters = dbEdu.createRunSelectQuery(dbEdu, dbSchema, "Courses", semesterSelectList, semesterExtra);
+                ResultSet rsSemesters = dbEdu.createRunSelectQuery(dbSchema, "Courses", semesterSelectList, semesterExtra);
                 while (rsSemesters.next()) {
                     int semesterID = rsSemesters.getInt("semesterNbr");
                     String semesterName = rsSemesters.getString("semesterName");
@@ -55,14 +55,14 @@ public class EducationAction extends ActionSupport {
                     String courseExtra = "WHERE schoolID = " + schoolID + " AND semesterNbr = " + semesterID + " ORDER BY category, number DESC";
                     LinkedHashMap<String, String> courses = new LinkedHashMap<>();
 
-                    ResultSet rsCourses = dbEdu.createRunSelectQuery(dbEdu, dbSchema, "Courses", courseSelectList, courseExtra);
+                    ResultSet rsCourses = dbEdu.createRunSelectQuery(dbSchema, "Courses", courseSelectList, courseExtra);
                     while (rsCourses.next()) {
                         String category = rsCourses.getString("category");
                         int number = rsCourses.getInt("number");
                         String courseName = rsCourses.getString("courseName");
                         String description = rsCourses.getString("description");
 
-                        String courseTitle = category + " " + number;
+                        String courseTitle = (category == null) ? "" : category + " " + number;
                         if (description != null) {
                             courseName += " - " + description;
                         }

@@ -1,4 +1,4 @@
-#school_card {
+.school_card {
     width: 80%;
     margin: auto;
     border: 3px solid #1624a0;
@@ -7,7 +7,7 @@
     border-top-right-radius: 20px;
 }
 
-#school_name {
+.school_name {
     text-align: center;
     background-color: #1624a0;
     padding: 10px;
@@ -22,7 +22,7 @@
     rgb(0, 0, 0) 0 0 5px;
 }
 
-#school_details {
+.school_details {
     padding: 10px;
     overflow: hidden;
     display: grid;
@@ -36,24 +36,33 @@
     text-align: right;
 }
 
-#degree_major {
+.degree_major {
     padding-left: 10px;
 }
 
-#individual_semester {
+.individual_semester {
     border-top: lightskyblue 3px solid;
     width: 90%;
     margin: auto;
 }
 
-#semester_name_year {
+.semester_name_year {
     font-size: 1.15em;
     font-weight: bolder;
     border-bottom: lightskyblue 1px dashed;
     padding: 10px 20px;
 }
 
-#semester_course_list {
+.arrow {
+    height: 12px;
+    width: 12px;
+}
+
+.semester_course_list {
     width: 97%;
     margin: auto;
+}
+
+.school_name:hover, .semester_name_year:hover {
+    cursor: pointer;
 }

@@ -13,30 +13,30 @@
 
 <s:iterator value="workHistory">
 	<br/>
-	<div id="job_card">
+	<div class="job_card">
 		
-		<div id="company_name">
+		<div class="company_name">
 			<h2><s:property value="companyName"/></h2>
 		</div>
 		
-		<div id="job_details">
-			<div id="job_start_date" class="job_details_cell">
+		<div class="job_details">
+			<div class="job_start_date job_details_cell">
 				<s:property value="startDate"/>
 			</div>
-			<div id="job_title" class="job_details_cell">
+			<div class="job_title job_details_cell">
 				<b><s:property value="jobTitle"/></b>
 			</div>
-			<div id="job_location" class="job_details_cell">
+			<div class="job_location job_details_cell">
 				<i><s:property value="location"/></i>
 			</div>
-			<div id="job_end_date" class="job_details_cell">
+			<div class="job_end_date job_details_cell">
 				<s:property value="endDate"/>
 			</div>
 		</div>
 		
 		<br/>
 		
-		<div id="job_descriptions">
+		<div class="job_descriptions">
 			<ul>
 			<s:iterator value="jobDescriptions">
 				<li><s:property /></li>

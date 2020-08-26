@@ -1,4 +1,4 @@
-#job_card {
+.job_card {
     width: 80%;
     margin: auto;
     padding: 0 15px;
@@ -6,12 +6,12 @@
     background-color: black;
 }
 
-#company_name {
+.company_name {
     text-align: center;
     background-color: #1624a0;
 }
 
-#job_details {
+.job_details {
     overflow: hidden;
     display: grid;
     grid-template-columns: 25% 50% 25%;
@@ -24,12 +24,12 @@
     align-items: center;
 }
 
-#job_start_date, #job_end_date {
+.job_start_date, .job_end_date {
     grid-row: 1 / 3;
     font-size: x-large;
 }
 
-#job_descriptions {
+.job_descriptions {
     text-align: left;
     border-top-color: lightskyblue;
     border-top-style: dashed;

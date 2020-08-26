@@ -30,24 +30,25 @@ public class dbDAO {
         }
     }
 
-    public ResultSet createRunSelectQuery(dbDAO db, String dbSchema, String dbTable, String[] selectionCriteria, String extraCriteria) throws SQLException {
+    public ResultSet createRunSelectQuery(String dbSchema, String dbTable, String[] selectionCriteria, String extraCriteria) throws SQLException {
         Connection conn = null;
         ResultSet rs = null;
+        StringBuilder sqlText = new StringBuilder();
 
         try {
-            conn = db.openConnection(dbSchema);
+            conn = this.openConnection(dbSchema);
 
-            String sqlText = "SELECT ";
+            sqlText.append("SELECT ");
             for (int i = 0; i < selectionCriteria.length; i++) {
                 if (i == selectionCriteria.length-1) {
-                    sqlText += selectionCriteria[i];
+                    sqlText.append(selectionCriteria[i]);
                 } else {
-                    sqlText += selectionCriteria[i] + ", ";
+                    sqlText.append(selectionCriteria[i]).append(", ");
                 }
             }
-            sqlText += " FROM " + dbTable;
+            sqlText.append(" FROM ").append(dbTable);
             if (extraCriteria != null) {
-                sqlText += " " + extraCriteria; // used for specific WHERE, ORDER BY, etc.
+                sqlText.append(" ").append(extraCriteria); // used for specific WHERE, ORDER BY, etc.
             }
             Statement stmt = conn.createStatement();
 
@@ -56,12 +57,12 @@ public class dbDAO {
 //            ps.SetString(2, fdsa);
 //            ResultSet rs = ps.executeQuery();
 
-            rs = stmt.executeQuery(sqlText);
+            rs = stmt.executeQuery(String.valueOf(sqlText));
 
         } catch (SQLException sqle) {
             // catch SQL Exception
         } finally {
-            db.closeConnection(conn);
+            this.closeConnection(conn);
         }
         return rs;
     }

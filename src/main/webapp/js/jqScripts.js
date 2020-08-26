@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+    // Dropdowns for Skills
     $("#lang_header").click(function() {
         $("#languages").slideToggle();
         $('img', this).toggle();
@@ -32,6 +33,16 @@ $(document).ready(function() {
 
     $("#other_header").click(function() {
         $("#other_skills").slideToggle();
+        $('img', this).toggle();
+    });
+
+    // Dropdowns for Schools
+    $(".school_name").click(function() {
+        $(this).closest(".school_card").find(".school_semesters").slideToggle();
+    });
+
+    $(".semester_name_year").click(function() {
+        $(this).closest(".individual_semester").find(".semester_course_list").slideToggle();
         $('img', this).toggle();
     });
 
